@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[326]:
-
-
+# JYT work
 from __future__ import print_function
 import pickle
 import os.path
