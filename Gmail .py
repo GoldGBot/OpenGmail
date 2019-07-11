@@ -20,12 +20,6 @@ import webbrowser
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
-def Find(string): 
-    # findall() has been used  
-    # with valid conditions for urls in string 
-    url = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', string) 
-    return url 
-
 def main():
     creds = None
     if os.path.exists('token.pickle'):
@@ -51,32 +45,16 @@ def main():
     
     response = service.users().labels().list(userId='me').execute()
     
-
     
     #--------------------------------------------------------------------------
     
-    threads=service.users().threads().list(userId='me',labelIds='INBOX',q='jinxiaohou@outlook.com').execute().get('threads',[])
+    threads=service.users().threads().list(userId='me',labelIds='INBOX',q='CCCCCCC@outlook.com').execute().get('threads',[])
     for thread in threads:
         tdata=thread['snippet']
-        url=Find(tdata)
-        print(str(url))
-        for i in url:
-            webbrowser.open_new(str(i))
+        print(tdata)
         
-
         
 if __name__ == '__main__':
     main()
-
-
-# In[321]:
-
-
-
-
-
-# In[ ]:
-
-
 
 
